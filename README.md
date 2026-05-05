@@ -1,14 +1,16 @@
-# FlowSync — SaaS Workflow Automation
+# FlowSync SaaS Website
 
-A modern SaaS landing page built with **Next.js 14**, **TypeScript**, and **Tailwind CSS**.
+A polished, production-ready SaaS marketing site built with **Next.js 15+**, App Router, TypeScript, and Tailwind-ready CSS.
 
 ## Tech Stack
 
-- **Framework:** Next.js 14 (App Router)
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS v3 + CSS Variables (Nexus Design System)
-- **Icons:** Lucide React
-- **Fonts:** Cabinet Grotesk (display) + Satoshi (body) via Fontshare
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 15+ (App Router) |
+| Language | TypeScript |
+| Styling | Custom CSS (Tailwind-ready) |
+| Linting | ESLint |
+| Deployment | Vercel (recommended) |
 
 ## Getting Started
 
@@ -19,42 +21,52 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+## Scripts
+
+```bash
+npm run dev       # Start development server
+npm run build     # Create optimized production build
+npm run start     # Run production server locally
+npm run lint      # Lint with ESLint
+```
+
 ## Project Structure
 
 ```
 src/
-├── app/
-│   ├── layout.tsx        # Root layout with metadata & fonts
-│   ├── page.tsx          # Home page (assembles all sections)
-│   └── globals.css       # Design tokens + base styles
-├── components/
-│   ├── layout/
-│   │   ├── Navbar.tsx
-│   │   └── Footer.tsx
-│   └── sections/
-│       ├── Hero.tsx
-│       ├── Logos.tsx
-│       ├── Features.tsx
-│       ├── HowItWorks.tsx
-│       ├── Testimonials.tsx
-│       ├── Pricing.tsx
-│       └── CTA.tsx
-└── lib/
-    └── utils.ts          # cn() helper (clsx + tailwind-merge)
+  app/
+    layout.tsx      # Root layout + metadata
+    page.tsx        # Landing page (hero, features, pricing, CTA)
+    globals.css     # Full design system + component styles
 ```
 
-## Scripts
+## Sections
 
-| Command | Description |
-|---|---|
-| `npm run dev` | Start development server |
-| `npm run build` | Production build |
-| `npm run start` | Start production server |
-| `npm run lint` | Run ESLint |
-| `npm run type-check` | TypeScript type checking |
+- **Hero** — Large headline, dashboard mockup, key metrics
+- **Trust strip** — Logo row
+- **Features** — 4-card grid with large feature card
+- **Solutions** — Why it works callout
+- **Testimonials** — Social proof cards
+- **Pricing** — 3-tier pricing with featured plan
+- **CTA** — Final conversion section
 
-## Deployment
+## Extending
 
-Deploy instantly on [Vercel](https://vercel.com) — zero config required for Next.js.
+This repo is designed as a clean foundation. Easy next steps:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/devhariss/flowsync-saas)
+- Add authentication with [NextAuth.js](https://next-auth.js.org/)
+- Wire up billing with [Stripe](https://stripe.com/docs)
+- Add a blog/docs section via MDX or a headless CMS
+- Deploy to [Vercel](https://vercel.com) with one click
+
+## Branch Strategy
+
+```
+main       ← production-stable
+staging    ← pre-production integration branch
+feature/*  ← individual feature branches off staging
+```
+
+## License
+
+MIT
