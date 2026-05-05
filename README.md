@@ -1,72 +1,81 @@
-# FlowSync SaaS Website
+# FlowSync — SaaS Website
 
-A polished, production-ready SaaS marketing site built with **Next.js 15+**, App Router, TypeScript, and Tailwind-ready CSS.
+A polished, production-ready SaaS marketing website built with **Next.js 16.2.4** (App Router), TypeScript, and a dark-mode-first CSS design system.
 
-## Tech Stack
+---
+
+## Stack
 
 | Layer | Technology |
 |---|---|
-| Framework | Next.js 15+ (App Router) |
+| Framework | Next.js 16.2.4 (App Router) |
 | Language | TypeScript |
-| Styling | Custom CSS (Tailwind-ready) |
-| Linting | ESLint |
-| Deployment | Vercel (recommended) |
+| Styling | Global CSS + design tokens |
+| Linting | ESLint (eslint-config-next) |
+| Build | Turbopack |
 
-## Getting Started
+---
+
+## Getting started
 
 ```bash
+# Install dependencies
 npm install
+
+# Start dev server
 npm run dev
+
+# Production build
+npm run build
+
+# Lint
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+---
 
-## Scripts
+## Branch strategy
 
-```bash
-npm run dev       # Start development server
-npm run build     # Create optimized production build
-npm run start     # Run production server locally
-npm run lint      # Lint with ESLint
-```
+| Branch | Purpose |
+|---|---|
+| `main` | Production — always deployable |
+| `staging` | Integration branch — merges into main via PR |
+| `feat/add-animations` | Feature branch — scroll and entrance animations |
 
-## Project Structure
+---
 
-```
-src/
-  app/
-    layout.tsx      # Root layout + metadata
-    page.tsx        # Landing page (hero, features, pricing, CTA)
-    globals.css     # Full design system + component styles
-```
-
-## Sections
-
-- **Hero** — Large headline, dashboard mockup, key metrics
-- **Trust strip** — Logo row
-- **Features** — 4-card grid with large feature card
-- **Solutions** — Why it works callout
-- **Testimonials** — Social proof cards
-- **Pricing** — 3-tier pricing with featured plan
-- **CTA** — Final conversion section
-
-## Extending
-
-This repo is designed as a clean foundation. Easy next steps:
-
-- Add authentication with [NextAuth.js](https://next-auth.js.org/)
-- Wire up billing with [Stripe](https://stripe.com/docs)
-- Add a blog/docs section via MDX or a headless CMS
-- Deploy to [Vercel](https://vercel.com) with one click
-
-## Branch Strategy
+## Project structure
 
 ```
-main       ← production-stable
-staging    ← pre-production integration branch
-feature/*  ← individual feature branches off staging
+flowsync-saas/
+├── src/
+│   └── app/
+│       ├── layout.tsx       # Root layout + metadata
+│       ├── page.tsx         # Main landing page
+│       └── globals.css      # Design system + global styles
+├── next.config.mjs
+├── tsconfig.json
+├── package.json
+├── CHANGELOG.md
+└── README.md
 ```
 
-## License
+---
 
-MIT
+## Deployment
+
+Vercel is the recommended deployment target. Connect the repo and Vercel auto-detects Next.js settings.
+
+1. Push to GitHub
+2. Import repo at [vercel.com/new](https://vercel.com/new)
+3. Set environment variables from `.env.staging` as a reference
+4. Deploy
+
+---
+
+## Roadmap
+
+- [ ] `feat/add-animations` — scroll-reveal + staggered entrance animations
+- [ ] Stripe billing integration
+- [ ] Auth layer (NextAuth / Clerk)
+- [ ] CMS integration for blog and docs
